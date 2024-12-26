@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Paper</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background: blue;
+        height: 50px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      header a {
+        color: white;
+        justify-content: left;
+        font-weight: 600;
+      }
+      nav {
+        display: flex;
+        text-align: center;
+        gap: 20px;
+      }
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: top;
+        text-align: center;
+      }
+      .content h2 {
+        text-align: left;
+        padding-left: 50px;
+      }
+      .main-content {
+        width: 100%;
+        padding-top: 50 px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 3fr));
+        gap: 20px;
+      }
+      article {
+        border: black;
+        box-shadow: black 0px 1px 1px;
+        border-radius: 10px;
+      }
+
+      article figure {
+        padding: 10px;
+        background-color: gray;
+        border-radius: 10px;
+        color: white;
+        padding-bottom: 10px;
+        overflow: hidden;
+      }
+      article figure img {
+        width: 100%;
+        height: auto;
+      }
+      aside {
+        border: 1px solid #ccc;
+        padding: 20px;
+        width: 350px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: -webkit-sticky;
+        position: sticky;
+        top: 20px;
+        color: #333;
+        right: 0;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="#" style="font-size: 30px">News paper</a>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Services</a>
+        <a href="#">Marketing</a>
+        <a href="#">Updates</a>
+      </nav>
+    </header>
+
+    <div class="content">
+
+      <main class="main-content">
+
+        <article>
+          <h2>Article 1</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+
+        <article>
+          <h2>Article 2</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+
+        <article>
+          <h2>Article 3</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+
+        <article>
+          <h2>Article 4</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+        <article>
+          <h2>Article 5</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+        <article>
+          <h2>Article 6</h2>
+          <figure>
+            <img src="https://via.placeholder.com/300x200" />
+            <figcaption>Image Source</figcaption>
+          </figure>
+          <p>Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi Kuch bi</p>
+        </article>
+      </main>
+
+      <aside class="related-news">
+        <h3>Related news</h3>
+        <ul>
+          <a href="#">Related news 1</a>
+        </ul>
+        <ul>
+          <a href="#">Related news 2</a>
+        </ul>
+        <ul>
+          <a href="#">Related news 3</a>
+        </ul>
+      </aside>
+    </div>
+
+    <section>
+      <h2>Recent post</h2>
+      <div>
+        <table></table>
+      </div>
+    </section>
+  </body>
+</html>
