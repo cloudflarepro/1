@@ -1,0 +1,257 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Lab Programs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .program {
+            transition: transform 0.3s ease, max-height 0.3s ease;
+            overflow: hidden;
+        }
+        .program.expanded {
+            transform: scale(1.05);
+            max-height: 1000px;
+        }
+        .program.collapsed {
+            max-height: 300px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-red {
+            background-color: #ff4d4d;
+        }
+        .btn-red:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+        .btn-yellow {
+            background-color: #ffcc00;
+        }
+        .btn-yellow:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        }
+        .btn-blue {
+            background-color: #007bff;
+        }
+        .btn-blue:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .btn-green {
+            background-color: #28a745;
+        }
+        .btn-green:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .btn-orange {
+            background-color: #fd7e14;
+        }
+        .btn-orange:hover {
+            background-color: #e8590c;
+            transform: translateY(-2px);
+        }
+        .btn-blue-violet {
+            background-color: #8a2be2;
+        }
+        .btn-blue-violet:hover {
+            background-color: #6a0dad;
+            transform: translateY(-2px);
+        }
+        .btn-red-orange {
+            background-color: #ff4500;
+        }
+        .btn-red-orange:hover {
+            background-color: #e03c00;
+            transform: translateY(-2px);
+        }
+        .btn-yellow-green {
+            background-color: #9acd32;
+        }
+        .btn-yellow-green:hover {
+            background-color: #7fae1b;
+            transform: translateY(-2px);
+        }
+        .program img {
+            object-position: top;
+        }
+    </style>
+    <script>
+        function toggleExpand(id) {
+            const programs = document.querySelectorAll('.program');
+            programs.forEach(program => {
+                const buttons = program.querySelector('.mt-2');
+                if (program.id === id) {
+                    program.classList.toggle('expanded');
+                    program.classList.toggle('collapsed');
+                    if (program.classList.contains('expanded')) {
+                        buttons.classList.remove('hidden');
+                    } else {
+                        buttons.classList.add('hidden');
+                    }
+                } else {
+                    program.classList.remove('expanded');
+                    program.classList.add('collapsed');
+                    buttons.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white py-4">
+        <h1 class="text-center text-3xl font-bold">The Amazing Team</h1>
+        <p class="text-center text-sm">@CIT-NC Bangalore</p>
+        <h2 class="text-center text-xl mt-2">Web Technology Lab BCSL504</h2>
+    </header>
+    <div class="container mx-auto p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program1" onclick="toggleExpand('program1')">
+                <h2 class="text-xl font-bold mb-2">Program 1: HTML Basics</h2>
+                <img src="/images/1.jpg" alt="Screenshot of Hello World program displaying a simple webpage with 'Hello, World!' text" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/1.html" class="btn btn-red" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/1.html" class="btn btn-yellow" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program2" onclick="toggleExpand('program2')">
+                <h2 class="text-xl font-bold mb-2">Program 2: HTML Tables</h2>
+                <img src="/images/2.jpg" alt="Screenshot of Simple CSS program displaying a styled webpage with a heading and a paragraph" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/2.html" class="btn btn-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/2.html" class="btn btn-orange" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program3" onclick="toggleExpand('program3')">
+                <h2 class="text-xl font-bold mb-2">Program 3: External CSS Styling</h2>
+                <img src="/images/3.jpg" alt="Screenshot of JavaScript Alert program displaying a button that triggers an alert" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/3.html" class="btn btn-blue-violet" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/3.html" class="btn btn-red-orange" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program4" onclick="toggleExpand('program4')">
+                <h2 class="text-xl font-bold mb-2">Program 4: HTML Forms with CSS</h2>
+                <img src="/images/4.jpg" alt="Screenshot of Basic Form program displaying a simple form with name and email fields" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/4.html" class="btn btn-yellow-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/4.html" class="btn btn-blue-violet" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program5" onclick="toggleExpand('program5')">
+                <h2 class="text-xl font-bold mb-2">Program 5: Semantic HTML and CSS</h2>
+                <img src="/images/5.jpg" alt="Screenshot of Responsive Layout program displaying a flexible grid layout" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/5.html" class="btn btn-red" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/5.html" class="btn btn-yellow" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program6" onclick="toggleExpand('program6')">
+                <h2 class="text-xl font-bold mb-2">Program 6: JavaScript Calculator</h2>
+                <img src="/images/6.jpg" alt="Screenshot of Image Gallery program displaying a grid of images" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/6.html" class="btn btn-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/6.html" class="btn btn-orange" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program7" onclick="toggleExpand('program7')">
+                <h2 class="text-xl font-bold mb-2">Program 7: JavaScript and JSON</h2>
+                <img src="/images/7.jpg" alt="Screenshot of Table Example program displaying a styled table" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/7.html" class="btn btn-blue-violet" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/7.html" class="btn btn-red-orange" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program8a" onclick="toggleExpand('program8a')">
+                <h2 class="text-xl font-bold mb-2">Program 8 A: PHP Vistor Count</h2>
+                <img src="/images/8a.jpg" alt="Screenshot of List Example Part A program displaying an ordered list" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/8a.html" class="btn btn-yellow-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/8a.html" class="btn btn-blue-violet" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program8b" onclick="toggleExpand('program8b')">
+                <h2 class="text-xl font-bold mb-2">Program 8 B: PHP and Student Database</h2>
+                <img src="/images/8b.webp" alt="Screenshot of List Example Part B program displaying an unordered list" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/8b.html" class="btn btn-yellow-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/8b.html" class="btn btn-blue-violet" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program9" onclick="toggleExpand('program9')">
+                <h2 class="text-xl font-bold mb-2">Program 9: jQuery DOM Manipulation</h2>
+                <img src="/images/9.jpg" alt="Screenshot of Link Example program displaying various types of links" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/9.html" class="btn btn-red" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/9.html" class="btn btn-yellow" target="_blank">View Output</a>
+                </div>
+            </div>
+            <div class="program bg-white p-4 rounded shadow collapsed" id="program10" onclick="toggleExpand('program10')">
+                <h2 class="text-xl font-bold mb-2">Program 10: Ajax Operations</h2>
+                <img src="/images/10.jpg" alt="Screenshot of Button Example program displaying various styled buttons" class="mb-2 w-full h-48 object-cover rounded">
+                <div class="mt-2 hidden flex justify-between mb-4">
+                    <a href="https://github.com/cloudflarepro/1/blob/main/10.html" class="btn btn-green" target="_blank">View Code</a>
+                    <a href="https://cloudflarepro.vercel.app/10.html" class="btn btn-orange" target="_blank">View Output</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto p-4">
+        <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+        <form action="https://formsubmit.co/gowrishhb5@gmail.com" method="POST" class="mb-4">
+            <div class="mb-4">
+                <label for="name" class="block text-sm font-bold mb-2">Name</label>
+                <input type="text" id="name" name="name" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-bold mb-2">Email</label>
+                <input type="email" id="email" name="email" class="w-full p-2 border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-sm font-bold mb-2">Message</label>
+                <textarea id="message" name="message" class="w-full p-2 border rounded" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-blue">Submit</button>
+        </form>
+    </div>
+    <footer class="bg-blue-600 text-white text-center py-4 mt-4">
+        <p>© 2023 Web Lab Programs. All rights reserved by The Amazing Team @CITNC</p>
+        <p>Credits:</p>
+        <ul class="list-none">
+            <li><a href="https://gowrish.vercel.app/" class="text-white hover:underline" target="_blank">Gowrish H B</a></li>
+            <li><a href="https://www.linkedin.com/in/sahil-a-gowda/" class="text-white hover:underline" target="_blank">Sahil A Gowda</a></li>
+            <li><a href="https://dusklight00.vercel.app/" class="text-white hover:underline" target="_blank">Rahul Raj</a></li>
+            <li><a href="https://sizu00.vercel.app/" class="text-white hover:underline" target="_blank">Srijani M</a></li>
+        </ul>
+    </footer>
+    <script>
+        document.querySelectorAll('.program').forEach(program => {
+            program.addEventListener('click', function() {
+                const buttons = this.querySelector('.mt-2');
+                if (this.classList.contains('expanded')) {
+                    buttons.classList.add('hidden');
+                } else {
+                    buttons.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
