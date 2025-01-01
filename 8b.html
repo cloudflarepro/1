@@ -1,48 +1,8 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "students";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM students";
-$result = $conn->query($sql);
-
-$students = [];
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $students[] = $row;
-    }
-}
-
-function selectionSort(&$arr, $key)
-{
-    $n = count($arr);
-    for ($i = 0; $i < $n - 1; $i++) {
-        $minIndex = $i;
-        for ($j = $i + 1; $j < $n; $j++) {
-            if ($arr[$j][$key] < $arr[$minIndex][$key]) {
-                $minIndex = $j;
-            }
-        }
-
-        $temp = $arr[$i];
-        $arr[$i] = $arr[$minIndex];
-        $arr[$minIndex] = $temp;
-    }
-}
-
-selectionSort($students, 'name');
-?>
-
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorted Student Records | vtucode</title>
     <style>
         body {
@@ -143,11 +103,8 @@ selectionSort($students, 'name');
         }
     </style>
 </head>
-
 <body>
-
     <h2>Sorted Student Records by Name</h2>
-
     <table>
         <thead>
             <tr>
@@ -159,20 +116,58 @@ selectionSort($students, 'name');
                 <th>Address</th>
             </tr>
         </thead>
-        <tbody>
-            <?php foreach ($students as $student): ?>
-                <tr>
-                    <td data-label="ID"><?php echo htmlspecialchars($student['id']); ?></td>
-                    <td data-label="Name"><?php echo htmlspecialchars($student['name']); ?></td>
-                    <td data-label="USN"><?php echo htmlspecialchars($student['usn']); ?></td>
-                    <td data-label="Branch"><?php echo htmlspecialchars($student['branch']); ?></td>
-                    <td data-label="Email"><?php echo htmlspecialchars($student['email']); ?></td>
-                    <td data-label="Address"><?php echo htmlspecialchars($student['address']); ?></td>
-                </tr>
-            <?php endforeach; ?>
+        <tbody id="studentTableBody">
+            
         </tbody>
     </table>
 
-</body>
+    <script>
+        const students = [
+        { id: 2, name: 'Aarav Sharma', usn: '1AJ23CS002', branch: 'CSE', email: 'aarav.sharma@gmail.com', address: 'Bangalore' },
+        { id: 8, name: 'Ishaan Verma', usn: '1AJ23CS008', branch: 'CSE', email: 'ishaan.verma@gmail.com', address: 'Hyderabad' },
+        { id: 5, name: 'Rajesh Patel', usn: '1AJ23CS005', branch: 'CSE', email: 'rajesh.patel@gmail.com', address: 'Ahmedabad' },
+        { id: 1, name: 'Karan Gupta', usn: '1AJ23DS001', branch: 'DS', email: 'karan.gupta@gmail.com', address: 'Jaipur' },
+        { id: 9, name: 'Aditya Prasad', usn: '1AJ23IS009', branch: 'ISE', email: 'aditya.prasad@gmail.com', address: 'Kolkata' },
+        { id: 6, name: 'Rohit Singh', usn: '1AJ23CY006', branch: 'Cyber', email: 'rohit.singh@gmail.com', address: 'Chennai' },
+        { id: 7, name: 'Nikhil Tiwari', usn: '1AJ23EC007', branch: 'ECE', email: 'nikhil.tiwari@gmail.com', address: 'Pune' },
+        { id: 4, name: 'Anjali Mehta', usn: '1AJ23CS004', branch: 'CSE', email: 'anjali.mehta@gmail.com', address: 'Delhi' },
+        { id: 10, name: 'Priya Nair', usn: '1AJ23ME010', branch: 'ME', email: 'priya.nair@gmail.com', address: 'Thiruvananthapuram' },
+        { id: 3, name: 'Vikas Yadav', usn: '1AJ23CI003', branch: 'CIVIL', email: 'vikas.yadav@gmail.com', address: 'Lucknow' }
+    ]
+    
 
+        function selectionSort(arr, key) {
+            const n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                let minIndex = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (arr[j][key] < arr[minIndex][key]) {
+                        minIndex = j;
+                    }
+                }
+                [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+            }
+        }
+
+        function displayStudents(students) {
+            const tableBody = document.getElementById('studentTableBody');
+            tableBody.innerHTML = '';
+            students.forEach(student => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td data-label="ID">${student.id}</td>
+                    <td data-label="Name">${student.name}</td>
+                    <td data-label="USN">${student.usn}</td>
+                    <td data-label="Branch">${student.branch}</td>
+                    <td data-label="Email">${student.email}</td>
+                    <td data-label="Address">${student.address}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        selectionSort(students, 'name');
+        displayStudents(students);
+    </script>
+</body>
 </html>

@@ -1,22 +1,8 @@
-<?php
-$counterFile = "counter.txt";
-
-if (!file_exists($counterFile)) {
-    file_put_contents($counterFile, "0");
-}
-
-$currentCount = file_get_contents($counterFile);
-
-$newCount = $currentCount + 1;
-
-file_put_contents($counterFile, $newCount);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visitor Counter | vtucode</title>
     <style>
         body {
@@ -52,12 +38,26 @@ file_put_contents($counterFile, $newCount);
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <h1>Welcome to Our Website!</h1>
-        <p>You are visitor number: <strong><?php echo $newCount; ?></strong></p>
+        <p>You are visitor number: <strong id="visitorCount">Loading...</strong></p>
     </div>
-</body>
 
+    <script>
+        const counterKey = 'visitorCounter';
+
+        function updateVisitorCount() {
+            let count = localStorage.getItem(counterKey);
+            if (!count) {
+                count = 0;
+            }
+            count = parseInt(count) + 1;
+            localStorage.setItem(counterKey, count);
+            document.getElementById('visitorCount').textContent = count;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateVisitorCount);
+    </script>
+</body>
 </html>
