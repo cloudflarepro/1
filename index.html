@@ -235,8 +235,7 @@
         <p>© 2023 Web Lab Programs. All rights reserved by The Amazing Team @CITNC</p>
         <p>Credits:</p>
         <ul class="list-none">
-
-            <li><a href="https://vtucircle.com/" class="text-white hover:underline" target="_blank">VTU Code</a></li>
+            <li><a href="https://vtucircle.com/" class="text-white hover:underline" target="_blank" onclick="return confirmExternalLink()">VTU Code</a></li>
             <li><a href="https://gowrish.vercel.app/" class="text-white hover:underline" target="_blank">Gowrish H B</a></li>
             <li><a href="https://www.linkedin.com/in/sahil-a-gowda/" class="text-white hover:underline" target="_blank">Sahil A Gowda</a></li>
             <li><a href="https://dusklight00.vercel.app/" class="text-white hover:underline" target="_blank">Rahul Raj</a></li>
@@ -244,6 +243,9 @@
         </ul>
     </footer>
     <script>
+        function confirmExternalLink() {
+            return confirm("You are about to leave this site and visit an external website that we do not own. Do you want to proceed?");
+        }
         document.querySelectorAll('.program').forEach(program => {
             program.addEventListener('click', function() {
                 const buttons = this.querySelector('.mt-2');
